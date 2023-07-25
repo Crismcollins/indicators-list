@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import ValuesCard from '../components/ValuesList/ValuesCard'
 import React from 'react';
 

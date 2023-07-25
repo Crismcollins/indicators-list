@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import { ListItem, Icon } from 'react-native-elements';
-import { StyleSheet } from 'react-native';
 import IndicatorContext from '../../contexts/CurrentIndicator'
 import { findIndicatorData } from '../../utils/FindIndicatorData';
 import { CURRENCY } from '../../utils/StaticData';
 import { detail } from '../../utils/AppTexts';
+import { IndicatorCardStyle } from './IndicatorCardStyle';
 
 const IndicatorCard = (props) => {
     const { indicator, navigation, data } = props;
@@ -23,49 +23,28 @@ const IndicatorCard = (props) => {
     }
 
     return (
-        <ListItem bottomDivider>
-            <ListItem.Content>
+        <ListItem bottomDivider style={IndicatorCardStyle.container} onPress={() => goToValuesList(indicator)}>
+            <ListItem.Content >
                 <ListItem.Title
-                    style={styles.title}
-                    onPress={() => goToValuesList(indicator)}
+                    style={IndicatorCardStyle.title}
                 >
                     { indicator }
                 </ListItem.Title>
 
                 <ListItem.Subtitle
-                    style={styles.subTitle}
-                    onPress={() => goToValuesList(indicator)}
+                    style={IndicatorCardStyle.subTitle}
                 >
                     { CURRENCY }
                 </ListItem.Subtitle>
 
             </ListItem.Content>
-            <Icon name="info-outline" size={32} color="dodgerblue" style={styles.infoIcon}
+            <Icon name="info-outline" size={32} color="dodgerblue" style={IndicatorCardStyle.infoIcon}
                 onPress={() => goToDetail(indicator)}
             />
-            <ListItem.Chevron size={32}
-                onPress={() => goToValuesList(indicator)}
-            />
+            <ListItem.Chevron size={32}/>
         </ListItem>
     )
 }
 
-const styles = StyleSheet.create({
-    infoIcon: {
-
-    },
-    title: {
-        width: "100%",
-        fontSize: 26,
-        fontWeight: "bold"
-    },
-    subTitle: {
-        color: "dodgerblue",
-        marginTop: 8,
-        fontSize: 16,
-        width: "100%",
-    }
-
-});
-
 export default IndicatorCard;
+

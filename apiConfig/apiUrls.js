@@ -11,7 +11,7 @@ const lastMonthDate = getLastMonthDate(currentDate.fullDate);
 
 export const getDollarBetweenTwoDatesURL = () => {
     const url = DOLLAR_URL_BETWEEN_TWO_DATES;
-    return `${url.base}${url.endpoint1}/${url.endpoint2}/${lastMonthDate.year}/${lastMonthDate.month}/${url.endpoint3}/${lastMonthDate.day}/${currentDate.year}/${currentDate.month}/${url.endpoint4}/${currentDate.day}?apikey=${API_KEY}&formato=${FORMAT}`;
+    return `${url.base}/${url.endpoint1}/${url.endpoint2}/${lastMonthDate.year}/${lastMonthDate.month}/${url.endpoint3}/${lastMonthDate.day}/${currentDate.year}/${currentDate.month}/${url.endpoint4}/${currentDate.day}?apikey=${API_KEY}&formato=${FORMAT}`;
 }
 
 export const getEuroLaterOfAMonthURL = () => {
